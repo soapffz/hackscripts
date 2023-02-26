@@ -55,7 +55,7 @@ if type go >/dev/null 2>&1; then
     go install -v github.com/tomnomnom/unfurl@latest >/dev/null
     go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest >/dev/null
     go install -v github.com/tomnomnom/anew@latest >/dev/null
-    go install -v github.com/projectdiscovery/chaos-client/cmd >/dev/null
+    go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest >/dev/null
     echo "Go tools have been installed successfully."
 else
     echo "Go is not installed, skipping Go tools installation."
