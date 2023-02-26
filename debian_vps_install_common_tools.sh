@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 此文件是为了快速在新的debian vps上安装常用组件及hack tools
-# 直接使用方法：wget https://raw.githubusercontent.com/soapffz/hacktips/main/debian_vps_install_common_tools.sh && chmod +x debian_vps_install_common_tools.sh && ./debian_vps_install_common_tools.sh && ./debian_vps_install_common_tools.sh
+# 直接使用方法：wget https://raw.githubusercontent.com/soapffz/hacktips/main/debian_vps_install_common_tools.sh && chmod +x debian_vps_install_common_tools.sh && sudo ./debian_vps_install_common_tools.sh
 
 set -e
 
