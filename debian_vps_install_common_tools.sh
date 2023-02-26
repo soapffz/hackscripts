@@ -26,7 +26,7 @@ fi
 
 # Install dependencies and tools
 sudo apt-get update -yq >/dev/null
-sudo apt-get install -yq tmux unzip docker.io cmake jq nmap npm chromium parallel libssl-dev libffi-dev >/dev/null
+sudo apt-get install -yq python python3 python-pip python3-pip tmux unzip docker.io cmake jq nmap npm chromium parallel libssl-dev libffi-dev >/dev/null
 pip3 install requests lxml tldextract flask simplejson >/dev/null
 
 # Install Go tools if Go is installed
