@@ -5,17 +5,15 @@
 
 set -e
 
-# Check if Go is installed
+# Install Go if it's not already installed
 if ! type go >/dev/null 2>&1; then
-    # Install Go
     version=$(curl -L -s https://golang.org/VERSION?m=text)
-    echo "Downloading Golang $version"
-    wget --progress=bar:force https://dl.google.com/go/${version}.linux-amd64.tar.gz
+    wget -q --show-progress --progress=bar:force https://dl.google.com/go/${version}.linux-amd64.tar.gz
     sudo tar -C /usr/local -xzf ${version}.linux-amd64.tar.gz
     rm -rf $version*
 fi
 
-# Configure Go environment
+# Configure Go environment if it's not already configured
 if ! grep -q "GOROOT" ~/.bashrc; then
     cat <<EOF >>~/.bashrc
 # Golang vars
@@ -23,15 +21,16 @@ export GOROOT=/usr/local/go
 export GOPATH=\$HOME/go
 export PATH=\$GOPATH/bin:\$GOROOT/bin:\$HOME/.local/bin:\$PATH
 EOF
+    source ~/.bashrc
 fi
-source ~/.bashrc
 
 # Install dependencies and tools
-sudo apt-get update -yq
-sudo apt-get install -yq tmux unzip docker.io cmake jq nmap npm chromium parallel libssl-dev libffi-dev
-pip3 install requests lxml tldextract flask simplejson
+sudo apt-get update -yq >/dev/null
+sudo apt-get install -yq tmux unzip docker.io cmake jq nmap npm chromium parallel libssl-dev libffi-dev >/dev/null
+pip3 install requests lxml tldextract flask simplejson >/dev/null
 
-install_go_tools() {
+# Install Go tools if Go is installed
+if type go >/dev/null 2>&1; then
     go install -v github.com/tomnomnom/assetfinder@latest
     go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
     go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
@@ -42,12 +41,6 @@ install_go_tools() {
     go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
     go install -v github.com/tomnomnom/anew@latest
     go install -v github.com/projectdiscovery/chaos-client/cmd
-}
-
-if type go >/dev/null 2>&1; then
-    install_go_tools
-else
-    printf "Golang is not installed, skipping installation of Go tools.\n\n"
 fi
 
 echo "Done installing dependencies and tools."
