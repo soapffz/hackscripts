@@ -46,16 +46,15 @@ echo "Dependencies and tools have been installed successfully."
 # Install Go tools if Go is installed
 if type go >/dev/null 2>&1; then
     echo "Installing Go tools..."
+    
+    go install -v github.com/projectdiscovery/pdtm/cmd/pdtm@latest  >/dev/null
+    pdtm -install-all
     go install -v github.com/tomnomnom/assetfinder@latest >/dev/null
-    go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest >/dev/null
-    go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest >/dev/null
     go install -v github.com/ffuf/ffuf@latest >/dev/null
     go install -v github.com/tomnomnom/qsreplace@latest >/dev/null
     go install -v github.com/lc/gau@latest >/dev/null
     go install -v github.com/tomnomnom/unfurl@latest >/dev/null
-    go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest >/dev/null
     go install -v github.com/tomnomnom/anew@latest >/dev/null
-    go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest >/dev/null
     echo "Go tools have been installed successfully."
 else
     echo "Go is not installed, skipping Go tools installation."
