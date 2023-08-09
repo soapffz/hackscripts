@@ -18,6 +18,7 @@
 - **filter_no_bbq_wildcard_domains.sh**
 - **fofa1.py**：忘记哪来的fofa脚本了
 - **qianxin.py**：忘记哪来的hunter脚本了
+- **ARL-AWVS.py**；某星球的ARL和AWVS联动脚本，用cursor优化后去除了缓存文件夹，优化了代码逻辑。
 
 ### 更新
 
