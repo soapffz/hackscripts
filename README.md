@@ -12,5 +12,6 @@
   - 添加：push_xray_to_serverJ.py
   - 添加：monitor_bugbounty_domains
   - 添加：monitor_wildcard_domain_change.sh
+  - 添加：monitor_projectdiscovery_data.sh
 - 2023 年 4 月 11 日：
   - 初始化，添加 debian_vps_install_common_tools.sh 文件，可以快速在新的 debian vps 上安装常用组件及 hack tools
