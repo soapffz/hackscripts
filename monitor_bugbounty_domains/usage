@@ -1,0 +1,7 @@
+tmux
+
+chmod +x monitor_bugbounty_domains.sh
+
+./monitor_bugbounty_domains
+
+ctrl+b +d
