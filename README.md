@@ -17,6 +17,7 @@
 - **monitor_projectdiscovery_data.sh**
 - **filter_no_bbq_wildcard_domains.sh**
 - **fofa1.py**：忘记哪来的fofa脚本了
+- **qianxin.py**：忘记哪来的hunter脚本了
 
 ### 更新
 
